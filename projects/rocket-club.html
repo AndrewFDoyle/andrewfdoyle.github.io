@@ -14,7 +14,7 @@
   <header>
     <nav class="navbar">
       <div class="logo">
-        <h1><a href="https://andrewfdoyle.github.io/site/">Andrew Doyle</a></h1>
+        <h1><a href="https://andrewfdoyle.github.io/">Andrew Doyle</a></h1>
       </div>
     </nav>
   </header>
@@ -32,11 +32,11 @@
         <h3 class="section-header">Approach</h3>
         <p>My time with the team was brief, but I enjoyed getting to be a part of our group. The rocket you see was the test launch rocket we used to capture data on the flight and recovery for the competition rocket. This was launched several weeks or so before the competition.</p>
         <p>By the time I joined, I had some experience in ANSYS from the "simulation in engineering design" course series I was doing. That was enough to join the Simulation subgroup within the Mechanical team. Structural simulation was, granted, a minor piece of the pie. I volunteered a long with some others for this group and was asked to create a small analysis.</p><p>We decided to add a <a href="https://www.apogeerockets.com/Building_Supplies/Thrust_Plates">thrust plate</a> to relieve some of the load for the motor from the outer tube, but for our application, it would easily be icing on the cake.</p>
-          <img src="../media/page-content/rocket2-min.png" alt="b">
+          <img class="center-img" src="../media/page-content/rocket2-min.png" alt="A diagram showing the bulkhead in the rocket tube">
           <p>image courtesy of Apogee Rockets.</p><p>All the same then, how would the load of a motor rocket look under load? Our rocket was probably fitted with <a href="https://www.apogeerockets.com/Building_Supplies/Thrust_Plates/6in_75mm_Thrust_Plate">this</a> or a similar model.</p>
-          <img src="../media/page-content/rocket3-min.png" alt="c">
+          <img class="center-img" src="../media/page-content/rocket3-min.png" alt="An image of the CAD file to be analyze" loading="lazy">
           <p>I made this CAD model at the time. You may notice the outer screw bores are not staggered like the image on the site if you checked, and you would be correct. However, this, while a blemish on the model, is functional mute since only the inner ring would be screwed in at least for the scale of the loading supplied. If the larger holes were closer or fixed, this assumption would have to change.</p><p> The model was imported to ANSYS and given the material properties for the 6061-T6 Aluminum, and the boundary conditions were set to show as pure tension over the holes. Notice that each screw slot has a small annulus which mimics the area a screw head would occupy on launch. All other possible forces for this were neglected and thus, the plot below was created showing the greatest stress around the holes.</p>
-          <img src="../media/page-content/rocket4-min.png" alt="d">
+          <img class="center-img" src="../media/page-content/rocket4-min.png" alt="The ANSYS simulation results for the von Mises stresses" loading="lazy">
           <p>The result showed a maximum of 31 MPa stress, about a <a href="https://asm.matweb.com/search/SpecificMaterial.asp?bassnum=ma6061t6">tenth</a> of the yield strength. Overall, USLI was a good learning experience.</p>
       </section>
     </div>
