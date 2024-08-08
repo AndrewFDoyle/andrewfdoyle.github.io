@@ -37,17 +37,17 @@
           <p>
             The solution I came up with I call LIDS. LIDS is Local Inventory Database System. At a high level, it is a system that automatically reminds users about expiring foods and provide a grocery list to them which saves time every week, eliminates guess work, and helps avoid duplicate purchases.
           </p>
-          <p>The flowchart below is a simplifed on from the whiteboard original it is based on. I referenced the whiteboard version when I started coding LIDS.</p>
+          <p>The flowchart below is a simplified on from the whiteboard original it is based on. I referenced the whiteboard version when I started coding LIDS.</p>
           
-          <img class="img-top" src="../media/page-content/lids1.png" class="center" width="100%" loading="lazy">
+          <img class="img-top" src="../media/page-content/lids1-min.png" class="center" width="100%" loading="lazy">
           <p>
              I tried a few things before I landed on the below configuration for my database shown in the image below. Each element is described in the list under the image.
           </p>
-          <img class="img-top" src="../media/page-content/lids2.jpg" class="center" width="25%" loading="lazy">
+          <img class="img-top" src="../media/page-content/lids2-min.jpg" class="center" width="25%" loading="lazy">
           <p>
             <ol class="section-list">
               <li>
-                Use a Raspberry Pi 3 which is currently hooked into all the peripherals including monitor, keyboard, mouse, and scanner, but it is currently running ‘headless’ or without everthing but the scanner.
+                Use a Raspberry Pi 3 which is currently hooked into all the peripherals including monitor, keyboard, mouse, and scanner, but it is currently running ‘headless’ or without everything but the scanner.
               </li>
               <li>
                 The T-cobbler and ribbon connects the LED circuit to the GPIO pins on the Raspberry Pi.
@@ -56,7 +56,7 @@
                 On the monitor is the Python code that does 3 main things: It scans items in or out, adds to the database, and sends the weekly data and grocery list to the end user.
               </li>
               <li>
-                The instructions gives the user a reminder on what to do in each use-case, but in the long run, it serves by having the barcodes that turn LIDS on and off add/subtract modes and whether an item perished or is marked as perishable.
+                The instructions give the user a reminder on what to do in each use-case, but in the long run, it serves by having the barcodes that turn LIDS on and off add/subtract modes and whether an item perished or is marked as perishable.
               </li>
               <li>
                 The scanner is the one piece of hardware I had to buy in addition to the Raspberry Pi which was purchased on amazon.com for about $20.
@@ -66,7 +66,7 @@
           <h3 class="section-header">Solution</h3>
           <embed src="../media/page-content/LIDS-scanner-instructions-v1.0.pdf" width="500" height="375" type="application/pdf" class="embedded">
             <p>I counted the existing pantry. However, it was not necessary to do so as the system only needs to identify changes in inventory and this can be done as long as the item has a label (which is only for the list).</p>
-          <img class="img-top" src="../media/page-content/lids3.jpg" width="25%" loading="lazy">
+          <img class="img-top" src="../media/page-content/lids3-min.jpg" width="25%" loading="lazy">
             <p>If you would like to see a demo of this, you can view the link under this. If that does not work in your browser, find it <a href="https://www.youtube.com/watch?v=UIXkCUFZBFA">here</a>.</p>
             <iframe class="show-video" width="560" height="315" src="https://www.youtube.com/embed/UIXkCUFZBFA?si=Z5FzyFLySYACGVAF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           <p>
