@@ -134,6 +134,11 @@ body{
     text-decoration: none;
 }
 
+.page-title a img{
+    position: absolute; 
+    bottom: 0;
+}
+
 .page-section{
     margin: 10%;
     padding: 0%;
@@ -142,7 +147,8 @@ body{
 
 .page-section-header{
     color: var(--dark_txt);
-    padding-left: 1em;
+    padding-left: 1rem;
+    padding-right: 1rem;
     font-weight: bold;
 }
 
@@ -184,13 +190,6 @@ body{
     background-color: var(--site_color_hover);
 }
 
-.project-listing li {
-    display: block;
-    list-style: none;
-    overflow-y: visible;
-    padding-bottom: 1rem;
-}
-
 /* --- PAGE CONTENT --- */
 
 .img-preview{
@@ -198,6 +197,7 @@ body{
     padding-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
+    bottom: 0;
 }
 
 .img-top{
