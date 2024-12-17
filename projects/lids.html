@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Andrew Doyle</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="icon" type="image/x-icon" href="./media/luke-square-comp.jpg">
+  <link rel="icon" type="image/x-icon" href="../media/luke-square-comp.jpg">
   <link rel="stylesheet" href="../css/reset.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/dark.css">
@@ -30,16 +30,25 @@
             A Typical American tosses nearly a ton of garbage away every year or <a href="https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/national-overview-facts-and-figures-materials">5 pounds a day</a>. 
             Roughly 20% of that waste is food at the consumer level.</p>
           <p>
-            In my home, I would like to reduce the waste from expired food by a minimum of 20% and cut excess spending by at least 10% over the course of 
-            6 months. I will measure waste by scanning items that enter in to the system and get exited at ‘wasted’ items. One caveat is that only ‘regular’ foods are accounted for. This means no parties or fancy dinners generate ‘waste’ by this definition.
+            I thought it would be cool to try to manage the inventory of my house, and the pantry seemed like a good place to start as any, with the added benefit of reducing waste in everyday consumption which would be enabled through this project.
           </p>
         <h3 class="section-header">Approach</h3>
-          <p>
-            The solution I came up with I call LIDS. LIDS is Local Inventory Database System. At a high level, it is a system that automatically reminds users about expiring foods and provide a grocery list to them which saves time every week, eliminates guess work, and helps avoid duplicate purchases.
-          </p>
-          <p>The flowchart below is a simplified on from the whiteboard original it is based on. I referenced the whiteboard version when I started coding LIDS.</p>
-          
+
+          <p>I was split between using an arduino and a Raspberry Pi 3, both of which I had at the beginning of the project, however, after losing way too many hours to the <a href="https://a.co/d/aZ2DdLE">ESP8266 ESP-01</a> wifi module attempting to flash the apparently faulty chips, (not to be confused with the <a href="https://a.co/d/aZ2DdLE">ESP 8266 ESP-12E</a>), I decided firmly on using the Raspberry Pi. </p> <p>This ended up being a better decision for a number of reasons, mainly that I could just set up a Python environment, connect to the wifi with a WLAN dongle instead of having to connect a Arduino each time. I used a <a href="https://en.wikipedia.org/wiki/LAMP_(software_bundle)">LAMP</a> stack for my server to host the database on my local network, and instead of MySQL, I used MariaDB. The flowchart below is a simplified on from the whiteboard original it is based on.</p>
+          <p>The resulting flowchart comes from a slightly more detailed whiteboard version, and the version here represents a compressed version of that.</p>
+
           <img class="center-img" src="../media/page-content/lids1-min.png" loading="lazy">
+
+          <p>I emptied my pantry and fridge contents to do the painful first step of counting it all.</p>
+          
+          <img class="center-img" src="../media/page-content/lids4-min.jpg" loading="lazy">
+          
+          <p>labeling/naming every item pantry was done by hand, then barcode scanner. There are libaries of <a href="https://en.wikipedia.org/wiki/Universal_Product_Code"> Universal Product Codes</a> (UPC) which could help with scanning. Sadly, most of the free options I tried are greatly limited, and the remaining ones were behind a paywall, and I did not try those. so once I had entered my list, I scanned to make my own library.</p>
+
+          <p style="font-style: italic;">It should be noted that this project is not currently operational, but if it were the two biggest hurdles to overcome would be the initial entry and the "exit" entry or counting use in a way that's not more hassle than the original problem so if anyone seeks to take up this project for professional or personal applications, I would love to know the approach or scenario that bypasses these problems.</p>
+          
+
+
           <p>
              I tried a few things before I landed on the below configuration for my database shown in the image below. Each element is described in the list under the image.
           </p>
@@ -64,10 +73,21 @@
             </ol>
           </p>
           <h3 class="section-header">Solution</h3>
+
+          <p>For the curious, the project code Repo is linked below on GitHub which includes the "checkin/checkout" program, the email script, and everything else. </p>
+
+          <div class="page-link">
+            <a href="https://github.com/AndrewFDoyle/LIDS" target="_blank">GitHub - Raspberry Pi Python/SQL Code</a>
+          </div>
+
+          <p>The sheet with the barcodes shows what a user sees, which I explain in more detail in the video below.</p>
+
             <br>
-            <embed src="../media/page-content/LIDS-scanner-instructions-v1.0.pdf" width="100%" height="350px" type="application/pdf" class="embedded">
+            <embed src="../media/page-content/LIDS-scanner-instructions-v1.0.pdf" width="100%" height="500px" type="application/pdf" class="embedded">
             <br>
-            <p>I counted the existing pantry. However, it was not necessary to do so as the system only needs to identify changes in inventory and this can be done as long as the item has a label (which is only for the list).</p>
+
+          <p>This is a screenshot of the table created and in brief, the id numbers the item internall, the name is a recognizable way for us to reference the item when it gets added to the grocery store list, the ideal_qty and real_qty columns are compared to find the amount that should be bought, the 3 UPC columns are there since there may be multiple versions or brands of a product, a persihable column was added to denote a boolean relation of either TRUE/FALSE 1/0 and the expire_date was initialized for all items as 1 week after the purchase date or some similar period of time. After data was collected, each item could get specialized input.</p>
+
           <img class="center-img" src="../media/page-content/lids3-min.jpg" loading="lazy">
             <p>If you would like to see a demo of this, you can view the link under this. If that does not work in your browser, find it <a href="https://www.youtube.com/watch?v=UIXkCUFZBFA">here</a>.</p>
             <iframe class="show-video" width="560" height="315" src="https://www.youtube.com/embed/UIXkCUFZBFA?si=Z5FzyFLySYACGVAF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
