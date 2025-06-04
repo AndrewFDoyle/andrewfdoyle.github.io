@@ -28,13 +28,11 @@
         <h3 class="section-header">Problem</h3>
           <p>
             A Typical American tosses nearly a ton of garbage away every year or <a href="https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling/national-overview-facts-and-figures-materials">5 pounds a day</a>. 
-            Roughly 20% of that waste is food at the consumer level.</p>
-          <p>
-            I thought it would be cool to try to manage the inventory of my house, and the pantry seemed like a good place to start as any, with the added benefit of reducing waste in everyday consumption which would be enabled through this project.
+            Roughly 20% of that waste is food at the consumer level. I thought it would be cool to try to manage the inventory of my house, and the pantry seemed like a good place to start as any, with the added benefit of reducing waste in everyday consumption which would be enabled through this project.
           </p>
         <h3 class="section-header">Approach</h3>
 
-          <p>I was split between using an arduino and a Raspberry Pi 3, both of which I had at the beginning of the project, however, after losing way too many hours to the <a href="https://a.co/d/aZ2DdLE">ESP8266 ESP-01</a> wifi module attempting to flash the apparently faulty chips, (not to be confused with the <a href="https://a.co/d/aZ2DdLE">ESP 8266 ESP-12E</a>), I decided firmly on using the Raspberry Pi. </p> <p>This ended up being a better decision for a number of reasons, mainly that I could just set up a Python environment, connect to the wifi with a WLAN dongle instead of having to connect a Arduino each time. I used a <a href="https://en.wikipedia.org/wiki/LAMP_(software_bundle)">LAMP</a> stack for my server to host the database on my local network, and instead of MySQL, I used MariaDB. The flowchart below is a simplified on from the whiteboard original it is based on.</p>
+          <p>I was split between using an arduino and a Raspberry Pi 3, both of which I had at the beginning of the project, however, after losing way too many hours to troubleshooting the <a href="https://a.co/d/aZ2DdLE">ESP8266 ESP-01</a> wifi module attempting to flash the apparently faulty chips, (not to be confused with the <a href="https://a.co/d/aZ2DdLE">ESP 8266 ESP-12E</a>), I decided firmly on using the Raspberry Pi. </p> <p>This ended up being a better decision for a number of reasons, mainly that I could just set up a Python environment, connect to the wifi with a WLAN dongle instead of having to connect a Arduino each time. I used a <a href="https://en.wikipedia.org/wiki/LAMP_(software_bundle)">LAMP</a> stack for my server to host the database on my local network, and instead of MySQL, I used MariaDB. The flowchart below is a simplified on from the whiteboard original it is based on.</p>
           <p>The resulting flowchart comes from a slightly more detailed whiteboard version, and the version here represents a compressed version of that.</p>
 
           <img class="center-img" src="../media/page-content/lids1-min.png" loading="lazy">
@@ -56,7 +54,7 @@
           <p>
             <ol class="section-list">
               <li>
-                Use a Raspberry Pi 3 which is currently hooked into all the peripherals including monitor, keyboard, mouse, and scanner, but it is currently running ‘headless’ or without everything but the scanner.
+                Use a Raspberry Pi 3 which is currently hooked into all the peripherals including monitor, keyboard, mouse, and scanner, but it is currently running ‘headless’ or without everything but the monitor.
               </li>
               <li>
                 The T-cobbler and ribbon connects the LED circuit to the GPIO pins on the Raspberry Pi.
@@ -86,7 +84,7 @@
             <embed src="../media/page-content/LIDS-scanner-instructions-v1.0.pdf" width="100%" height="500px" type="application/pdf" class="embedded">
             <br>
 
-          <p>This is a screenshot of the table created and in brief, the id numbers the item internall, the name is a recognizable way for us to reference the item when it gets added to the grocery store list, the ideal_qty and real_qty columns are compared to find the amount that should be bought, the 3 UPC columns are there since there may be multiple versions or brands of a product, a persihable column was added to denote a boolean relation of either TRUE/FALSE 1/0 and the expire_date was initialized for all items as 1 week after the purchase date or some similar period of time. After data was collected, each item could get specialized input.</p>
+          <p>This is a screenshot of the table created and in brief, the name is a recognizable way for us to reference the item with its accompanying index ID when it gets added to the grocery store list, the ideal_qty and real_qty columns are compared to find the amount that should be bought, the 3 UPC columns are there since there may be multiple versions or brands of a product, a persihable column was added to denote a boolean relation of either TRUE/FALSE 1/0 and the expire_date was initialized for all items as 1 week after the purchase date or some similar period of time. After data was collected, each item could get specialized input.</p>
 
           <img class="center-img" src="../media/page-content/lids3-min.jpg" loading="lazy">
             <p>If you would like to see a demo of this, you can view the link under this. If that does not work in your browser, find it <a href="https://www.youtube.com/watch?v=UIXkCUFZBFA">here</a>.</p>
